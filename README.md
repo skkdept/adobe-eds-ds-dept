@@ -1,3 +1,8 @@
+# AEM Code Sync and Admin Tools
+https://tools.aem.live/bot/setup?user=sravan.kollapudi%40deptagency.com&site=adobe-eds-ds-dept&url=https%3A%2F%2Fcontent.da.live%2Fskkdept%2Fadobe-eds-ds-dept%2F&org=skkdept
+
+https://aemcoder.adobe.io/chat/code/files
+
 # Your Project's Title...
 Your project's description...
 

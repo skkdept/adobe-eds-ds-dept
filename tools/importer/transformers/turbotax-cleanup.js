@@ -3,7 +3,8 @@
 
 /**
  * Transformer for TurboTax website cleanup
- * Purpose: Remove non-content elements (header, footer, nav, skip links, modals)
+ * Purpose: Remove non-content elements (header, footer, nav, scripts, styles,
+ *          tracking, cookie banners, Intuit-specific UI)
  * Applies to: turbotax.intuit.com (all templates)
  * Generated: 2026-02-27
  *
@@ -19,25 +20,58 @@ const TransformHook = {
 
 export default function transform(hookName, element, payload) {
   if (hookName === TransformHook.beforeTransform) {
-    // Remove header/navigation
+    // Remove cookie/consent banners
+    // EXTRACTED: Intuit sites use various consent/cookie banner patterns
+    WebImporter.DOMUtils.remove(element, [
+      '[class*="cookie"]',
+      '[class*="consent"]',
+      '[id*="cookie"]',
+      '[id*="consent"]',
+      '[class*="CookieBanner"]',
+      '[class*="ConsentBanner"]',
+    ]);
+
+    // Remove navigation header
     // EXTRACTED: Found <header class="w-full Header-header-ef98178 sticky top-0 z-30">
     WebImporter.DOMUtils.remove(element, [
-      'header.Header-header-ef98178',
       'header',
+      'nav',
+    ]);
+
+    // Remove footer
+    // EXTRACTED: Footer is typically loaded dynamically on TurboTax pages
+    WebImporter.DOMUtils.remove(element, [
+      'footer',
+    ]);
+
+    // Remove scripts and styles
+    // These are not content and should never be imported
+    WebImporter.DOMUtils.remove(element, [
+      'script',
+      'style',
+      'link[rel="stylesheet"]',
+      'noscript',
+    ]);
+
+    // Remove tracking/analytics elements
+    // EXTRACTED: Found iframes for tracking pixels and data-analytics attributes
+    WebImporter.DOMUtils.remove(element, [
+      'iframe',
+      '[data-analytics]',
+    ]);
+
+    // Remove Intuit-specific hosted UI elements
+    // EXTRACTED: Found Intuit Identity Service (IUS) modal containers
+    WebImporter.DOMUtils.remove(element, [
+      '#ius-hosted-ui',
+      '.ius-hosted-ui-container',
     ]);
 
     // Remove skip-to-content link
     // EXTRACTED: Found <a href="#mainContent" class="Header-skipLink-7ad2311">
     WebImporter.DOMUtils.remove(element, [
-      'a.Header-skipLink-7ad2311',
       'a[href="#mainContent"]',
-    ]);
-
-    // Remove navigation containers
-    // EXTRACTED: Found <nav class="Nav-navContainer-7029c27 Nav-dropdownNavContainer-232cbaf">
-    WebImporter.DOMUtils.remove(element, [
-      'nav.Nav-navContainer-7029c27',
-      'nav',
+      'a.Header-skipLink-7ad2311',
     ]);
 
     // Remove carousel navigation elements (glide arrows, bullets)
@@ -48,25 +82,14 @@ export default function transform(hookName, element, payload) {
       '.glide__arrowContainer',
       '.glide__bulletsContainer',
     ]);
-
-    // Remove breadcrumb (handled as default content in migration, not imported as block)
-    // EXTRACTED: Found <div class="mb-16 font-medium body03"> containing breadcrumb links
-    // This will be recreated as default content, not parsed from source
   }
 
   if (hookName === TransformHook.afterTransform) {
-    // Remove remaining non-content elements
-    // Standard HTML elements safe to remove post-parsing
+    // Remove any remaining non-content elements that survived parsing
     WebImporter.DOMUtils.remove(element, [
       'noscript',
       'link',
       'source',
-    ]);
-
-    // Remove footer elements if present
-    // EXTRACTED: Footer is typically loaded dynamically on TurboTax pages
-    WebImporter.DOMUtils.remove(element, [
-      'footer',
       '[class*="Footer"]',
     ]);
 
@@ -77,6 +100,7 @@ export default function transform(hookName, element, payload) {
       el.removeAttribute('data-theme');
       el.removeAttribute('data-track');
       el.removeAttribute('data-testid');
+      el.removeAttribute('data-analytics');
     });
   }
 }

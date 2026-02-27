@@ -1,0 +1,38 @@
+{
+  "variantName": "tabs-video",
+  "baseBlock": "tabs",
+  "version": "1.0.0",
+  "created": "2026-02-27T19:56:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://turbotax.intuit.com/tax-tools/tax-articles-and-tips/",
+    "originPage": "Tax articles and tips landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "video-tabs",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "tab-label + heading + link + youtube-embed",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "video gallery pages",
+      "media content pages",
+      "tutorial/demo pages"
+    ],
+    "notSuitableFor": [
+      "text-only tabbed content",
+      "product comparison tabs"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/tax-tools/tax-articles-and-tips/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-02-27T19:56:00.000Z"
+  }
+}

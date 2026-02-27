@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-tools",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-02-27T19:56:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://turbotax.intuit.com/tax-tools/tax-articles-and-tips/",
+    "originPage": "Tax articles and tips landing page",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "tool-cards",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + title + description + link",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "calculator/tool listing pages",
+      "feature grid pages",
+      "product comparison cards"
+    ],
+    "notSuitableFor": [
+      "article listing pages",
+      "blog post grids",
+      "author profiles"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/tax-tools/tax-articles-and-tips/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-02-27T19:56:00.000Z"
+  }
+}

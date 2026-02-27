@@ -1,0 +1,38 @@
+{
+  "variantName": "columns-categories",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-02-27T19:56:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://turbotax.intuit.com/tax-tools/tax-articles-and-tips/",
+    "originPage": "Tax articles and tips landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "category-links",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "4 columns of categorized links with headings",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "category navigation pages",
+      "sitemap-style link pages",
+      "resource directory pages"
+    ],
+    "notSuitableFor": [
+      "image-heavy layouts",
+      "product comparison columns"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/tax-tools/tax-articles-and-tips/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-02-27T19:56:00.000Z"
+  }
+}

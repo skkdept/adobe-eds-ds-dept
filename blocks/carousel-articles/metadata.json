@@ -1,0 +1,38 @@
+{
+  "variantName": "carousel-articles",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-02-27T19:56:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://turbotax.intuit.com/tax-tools/tax-articles-and-tips/",
+    "originPage": "Tax articles and tips landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "article-carousel",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + category + title + description + link per slide",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "article category carousels",
+      "blog post sliding galleries",
+      "content recommendation carousels"
+    ],
+    "notSuitableFor": [
+      "hero image carousels",
+      "product showcase carousels"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/tax-tools/tax-articles-and-tips/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-02-27T19:56:00.000Z"
+  }
+}
